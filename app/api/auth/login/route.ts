@@ -7,21 +7,21 @@ interface RawUser extends UserModel {
 }
 
 export async function POST(req : NextRequest) {
-    const body = await req.json() as { email : string, password : string }
-    const { email, password } = body
+    const body = await req.json() as { username : string, password : string }
+    const { username, password } = body
 
-    if(!email || !password) {
+    if(!username || !password) {
         return NextResponse.json(
-            { error : "Email and password are required" },
+            { error : "Username and password are required" },
             { status : 400 }
         )
     }
 
-    const found = ( users as RawUser[]).find(u => u.email === email && u.password === password)
+    const found = ( users as RawUser[]).find(u => u.username === username && u.password === password)
 
     if(!found){
         return NextResponse.json(
-            { error : "Invalid email or password" },
+            { error : "Invalid username or password" },
             { status : 401 }
         )
     }

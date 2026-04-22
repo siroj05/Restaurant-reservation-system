@@ -3,16 +3,16 @@
 import { type FormEvent, useState } from "react"
 import { useRouter } from "next/navigation"
 import { useAuthStore } from "@/store/auth-store"
-import type { UserModel } from "@/app/api/types"
 import { Button } from "@/components/button";
 import { Input } from "@/components/inputs";
 import { Label } from "@/components/label";
 import { LoaderCircle } from "lucide-react"
+import { LoginRequest } from "../_actions/login"
 
 export default function LoginForm() {
     const router = useRouter()
-    const [email, setEmail] = useState<string>()
-    const [password, setPassword] = useState<string>()
+    const [username, setUsername] = useState<string>("")
+    const [password, setPassword] = useState<string>("")
     const [error, setError] = useState<string | null>(null)
     const [isPending, setIsPending] = useState<boolean>(false)
     const { login } = useAuthStore((state) => state)
@@ -22,16 +22,9 @@ export default function LoginForm() {
         setError(null)
         setIsPending(true)
 
-        const res = await fetch("/api/auth/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ email, password })
-        })
-        const data = await res.json() as { user?: UserModel, error?: string }
+        const data = await LoginRequest({username, password})
 
-        if (!res.ok || !data.user) {
+        if (!data.user) {
             setError(data.error ?? "Login gagal.")
             setIsPending(false)
             return
@@ -43,8 +36,8 @@ export default function LoginForm() {
     return (
         <form onSubmit={(e) => { void handleSubmit(e) }} className="space-y-4">
             <div>
-                <Label text="Email" />
-                <Input type="email" className="w-full" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <Label text="Username" />
+                <Input type="text" className="w-full" value={username} onChange={(e) => setUsername(e.target.value)} />
             </div>
             <div>
                 <Label text="Password" />
