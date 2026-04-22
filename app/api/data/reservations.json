@@ -1,0 +1,102 @@
+[
+  {
+    "id": "rsv-001",
+    "userId": "user-001",
+    "guestName": "Budi Santoso",
+    "guestCount": 2,
+    "tableIds": ["table-01"],
+    "date": "2026-04-20",
+    "time": "12:00",
+    "zone": "indoor"
+  },
+  {
+    "id": "rsv-002",
+    "userId": "user-002",
+    "guestName": "Siti Rahayu",
+    "guestCount": 4,
+    "tableIds": ["table-03"],
+    "date": "2026-04-20",
+    "time": "12:30",
+    "zone": "indoor"
+  },
+  {
+    "id": "rsv-003",
+    "userId": "user-003",
+    "guestName": "Andi Wijaya",
+    "guestCount": 6,
+    "tableIds": ["table-05"],
+    "date": "2026-04-20",
+    "time": "18:00",
+    "zone": "indoor"
+  },
+  {
+    "id": "rsv-004",
+    "userId": "user-004",
+    "guestName": "Dewi Lestari",
+    "guestCount": 3,
+    "tableIds": ["table-09"],
+    "date": "2026-04-20",
+    "time": "19:00",
+    "zone": "outdoor"
+  },
+  {
+    "id": "rsv-005",
+    "userId": "user-005",
+    "guestName": "Riko Pratama",
+    "guestCount": 8,
+    "tableIds": ["table-11"],
+    "date": "2026-04-20",
+    "time": "19:00",
+    "zone": "private"
+  },
+  {
+    "id": "rsv-006",
+    "userId": "user-001",
+    "guestName": "Budi Santoso",
+    "guestCount": 2,
+    "tableIds": ["table-07"],
+    "date": "2026-04-20",
+    "time": "11:00",
+    "zone": "outdoor"
+  },
+  {
+    "id": "rsv-007",
+    "userId": "user-003",
+    "guestName": "Andi Wijaya",
+    "guestCount": 4,
+    "tableIds": ["table-04"],
+    "date": "2026-04-20",
+    "time": "18:30",
+    "zone": "indoor"
+  },
+  {
+    "id": "rsv-008",
+    "userId": "user-002",
+    "guestName": "Siti Rahayu",
+    "guestCount": 2,
+    "tableIds": ["table-02"],
+    "date": "2026-04-21",
+    "time": "12:00",
+    "zone": "indoor"
+  },
+  {
+    "id": "rsv-009",
+    "userId": "user-005",
+    "guestName": "Riko Pratama",
+    "guestCount": 10,
+    "tableIds": ["table-11", "table-12"],
+    "date": "2026-04-21",
+    "time": "19:00",
+    "zone": "private"
+  },
+  {
+    "id": "rsv-010",
+    "userId": "user-004",
+    "guestName": "Dewi Lestari",
+    "guestCount": 5,
+    "tableIds": ["table-06"],
+    "date": "2026-04-21",
+    "time": "18:00",
+    "zone": "indoor"
+  }
+]

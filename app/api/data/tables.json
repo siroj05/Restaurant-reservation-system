@@ -1,0 +1,98 @@
+[
+  {
+    "id": "table-01",
+    "capacity": 2,
+    "zone": "indoor",
+    "position": { "x": 1, "y": 1 },
+    "adjacentTo": ["table-02"],
+    "label": "Meja 1"
+  },
+  {
+    "id": "table-02",
+    "capacity": 2,
+    "zone": "indoor",
+    "position": { "x": 2, "y": 1 },
+    "adjacentTo": ["table-01", "table-03"],
+    "label": "Meja 2"
+  },
+  {
+    "id": "table-03",
+    "capacity": 4,
+    "zone": "indoor",
+    "position": { "x": 3, "y": 1 },
+    "adjacentTo": ["table-02", "table-04"],
+    "label": "Meja 3"
+  },
+  {
+    "id": "table-04",
+    "capacity": 4,
+    "zone": "indoor",
+    "position": { "x": 4, "y": 1 },
+    "adjacentTo": ["table-03"],
+    "label": "Meja 4"
+  },
+  {
+    "id": "table-05",
+    "capacity": 6,
+    "zone": "indoor",
+    "position": { "x": 1, "y": 2 },
+    "adjacentTo": ["table-06"],
+    "label": "Meja 5"
+  },
+  {
+    "id": "table-06",
+    "capacity": 6,
+    "zone": "indoor",
+    "position": { "x": 2, "y": 2 },
+    "adjacentTo": ["table-05"],
+    "label": "Meja 6"
+  },
+  {
+    "id": "table-07",
+    "capacity": 2,
+    "zone": "outdoor",
+    "position": { "x": 1, "y": 3 },
+    "adjacentTo": ["table-08"],
+    "label": "Teras A"
+  },
+  {
+    "id": "table-08",
+    "capacity": 2,
+    "zone": "outdoor",
+    "position": { "x": 2, "y": 3 },
+    "adjacentTo": ["table-07", "table-09"],
+    "label": "Teras B"
+  },
+  {
+    "id": "table-09",
+    "capacity": 4,
+    "zone": "outdoor",
+    "position": { "x": 3, "y": 3 },
+    "adjacentTo": ["table-08", "table-10"],
+    "label": "Teras C"
+  },
+  {
+    "id": "table-10",
+    "capacity": 4,
+    "zone": "outdoor",
+    "position": { "x": 4, "y": 3 },
+    "adjacentTo": ["table-09"],
+    "label": "Teras D"
+  },
+  {
+    "id": "table-11",
+    "capacity": 8,
+    "zone": "private",
+    "position": { "x": 1, "y": 4 },
+    "adjacentTo": ["table-12"],
+    "label": "Ruang Kenanga"
+  },
+  {
+    "id": "table-12",
+    "capacity": 8,
+    "zone": "private",
+    "position": { "x": 2, "y": 4 },
+    "adjacentTo": ["table-11"],
+    "label": "Ruang Melati"
+  }
+]

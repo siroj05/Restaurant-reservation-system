@@ -1,0 +1,10 @@
+{
+  "name": "Warung Nusantara",
+  "address": "Jl. Raya Darmo No. 45, Surabaya",
+  "openTime": "10:00",
+  "closeTime": "22:00",
+  "reservationDuration": 90,
+  "cleanupBuffer": 30,
+  "maxPartySize": 12,
+  "description": "Restoran masakan Nusantara modern dengan suasana nyaman dan pemandangan taman kota."
+}

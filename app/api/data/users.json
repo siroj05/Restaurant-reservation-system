@@ -1,0 +1,47 @@
+[
+  {
+    "id": "user-001",
+    "name": "Budi Santoso",
+    "username": "budi",
+    "password": "budi123",
+    "email": "budi.santoso@email.com",
+    "phone": "081234567001",
+    "avatarPlaceholder": "/avatars/budi.jpg"
+  },
+  {
+    "id": "user-002",
+    "name": "Siti Rahayu",
+    "username": "siti",
+    "password": "siti123",
+    "email": "siti.rahayu@email.com",
+    "phone": "081234567002",
+    "avatarPlaceholder": "/avatars/siti.jpg"
+  },
+  {
+    "id": "user-003",
+    "name": "Andi Wijaya",
+    "username": "andi",
+    "password": "andi123",
+    "email": "andi.wijaya@email.com",
+    "phone": "081234567003",
+    "avatarPlaceholder": "/avatars/andi.jpg"
+  },
+  {
+    "id": "user-004",
+    "name": "Dewi Lestari",
+    "username": "dewi",
+    "password": "dewi123",
+    "email": "dewi.lestari@email.com",
+    "phone": "081234567004",
+    "avatarPlaceholder": "/avatars/dewi.jpg"
+  },
+  {
+    "id": "user-005",
+    "name": "Riko Pratama",
+    "username": "riko",
+    "password": "riko123",
+    "email": "riko.pratama@email.com",
+    "phone": "081234567005",
+    "avatarPlaceholder": "/avatars/riko.jpg"
+  }
+]
