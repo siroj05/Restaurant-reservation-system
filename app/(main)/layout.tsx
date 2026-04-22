@@ -1,3 +1,5 @@
+
+import Navbar from "@/components/navbar";
 import type { ReactNode } from "react";
 
 interface Props {
@@ -5,8 +7,11 @@ interface Props {
 }
 export default function Layout({children}:Props){
     return(
-        <div>
-            {children}
-        </div>
+        <>
+            <Navbar/>
+            <div>
+                {children}
+            </div>
+        </>
     )
 }

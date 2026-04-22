@@ -1,7 +1,7 @@
 "use client"
 
 import { useAuthStore } from "@/store/auth-store"
-import { useRouter } from "next/router"
+import { useRouter } from "next/navigation"
 import { useEffect } from "react"
 
 export function useAuthGuard(){
@@ -11,6 +11,8 @@ export function useAuthGuard(){
     useEffect(() => {
         if(!isAuth){
             void router.replace("/login");
+        }else{
+            void router.replace("/reserve")
         }
     },[isAuth, router])
 

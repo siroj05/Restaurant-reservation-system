@@ -1,11 +1,13 @@
 "use client"
 
-import { H2 } from "@/components/typography/headings";
-import { Caption } from "@/components/typography/misc";
+import { Caption, H2 } from "@/components/typography";
 import LoginForm from "./_components/login-form";
+import { useAuthGuard } from "@/lib/auth-guard";
 
 export default function LoginPage() {
+    const isAuth = useAuthGuard()
 
+    if (!isAuth) return null
     return (
         <div className="h-screen w-full flex items-center justify-center">
             {/* card login */}
@@ -14,7 +16,7 @@ export default function LoginPage() {
                     <Caption>SIGN IN</Caption>
                     <H2>Welcome Back.</H2>
                 </div>
-                <LoginForm/>
+                <LoginForm />
             </div>
         </div>
     )
