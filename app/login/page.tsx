@@ -5,9 +5,7 @@ import LoginForm from "./_components/login-form";
 import { useAuthGuard } from "@/lib/auth-guard";
 
 export default function LoginPage() {
-    const isAuth = useAuthGuard()
-
-    if (!isAuth) return null
+    useAuthGuard()
     return (
         <div className="h-screen w-full flex items-center justify-center">
             {/* card login */}
