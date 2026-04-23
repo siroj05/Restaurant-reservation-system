@@ -9,7 +9,7 @@ export default function Layout({children}:Props){
     return(
         <>
             <Navbar/>
-            <div>
+            <div className="mx-auto w-5xl my-10">
                 {children}
             </div>
         </>
