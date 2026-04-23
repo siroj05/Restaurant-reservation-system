@@ -3,15 +3,16 @@ import { store } from "@/lib/server-store"
 
 export async function GET(
     req: NextRequest,
-    { params }: { params: { id: string } }
+    { params }: { params: Promise<{ id: string }> }
 ) {
+    const { id } = await params
     const userId = req.cookies.get("userId")?.value
 
     if (!userId) {
         return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
     }
 
-    const entry = store.waitlist.find((w) => w.id === params.id)
+    const entry = store.waitlist.find((w) => w.id === id)
 
     if (!entry) {
         return NextResponse.json(
