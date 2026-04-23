@@ -25,7 +25,7 @@ export interface ReservationModel {
     id: string
     userId: string
     guestName: string
-    guestCount: string
+    guestCount: number
     tableIds: string[]
     date: string
     time: string

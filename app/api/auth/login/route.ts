@@ -27,5 +27,10 @@ export async function POST(req : NextRequest) {
     }
 
     const { password : _, ...safeUser } = found
-    return NextResponse.json({user : safeUser}, {status : 200})
+    const res = NextResponse.json({user : safeUser}, {status : 200})
+    res.cookies.set("userId", safeUser.id, {
+        httpOnly : true,
+        path : "/"
+    })
+    return res
 }
