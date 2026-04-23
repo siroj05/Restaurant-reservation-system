@@ -43,7 +43,7 @@ export function RecommendationCard({
                 </div>
                 
                 <div className="flex">
-                    <Button onClick={() => onSelect(recommendation)}>
+                    <Button type="button" onClick={() => onSelect(recommendation)}>
                         Reservasi
                     </Button>
                 </div>

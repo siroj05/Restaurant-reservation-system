@@ -3,11 +3,19 @@ import { HandPlatter } from "lucide-react";
 import { Body, H3 } from "./typography";
 import { useAuthStore } from "@/store/auth-store";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { useAuthGuard } from "@/lib/auth-guard";
+import Link from "next/link";
+
+const NAV_ITEMS = [
+    { label: "Reserve", href: "/reserve" },
+    { label: "My Reservation", href: "/my-reservations" },
+    { label: "Waitlist", href: "/waitlist" },
+] as const
 
 export default function Navbar() {
     const router = useRouter()
+    const pathname = usePathname()
     const { user, logout } = useAuthStore((state) => state)
     const [open, setOpen] = useState<boolean>(false)
 
@@ -33,15 +41,22 @@ export default function Navbar() {
                     </H3>
                 </div>
                 <div className="flex my-auto">
-                    <div className="border-b p-3 text-ink">
-                        Reserve
-                    </div>
-                    <div className="p-3 text-muted hover:border-b hover:text-ink">
-                        My Reservation
-                    </div>
-                    <div className="p-3 text-muted hover:border-b hover:text-ink">
-                        Waitlist
-                    </div>
+                    {NAV_ITEMS.map((item) => {
+                        const isActive = pathname === item.href
+                        return (
+                            <Link
+                                href={item.href}
+                                key={item.href}
+                                className={
+                                    isActive
+                                        ? "border-b p-3 text-ink"
+                                        : "p-3 text-muted hover:border-b hover:text-ink"
+                                }
+                            >
+                                {item.label}
+                            </Link>
+                        )
+                    })}
                 </div>
             </div>
 
