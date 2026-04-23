@@ -75,7 +75,9 @@ Strukturnya sekarang kurang lebih begini:
 3. **Tambah validasi**
    - Pakai skema validator seperti zod dan RHF agar lebih ketat dan rapih
 
+4. **Responsive di semua ukuran layar**
+   - Optimalkan responsivitas di semua ukuran layar.
 
-6. **UX improvement**
+5. **UX improvement**
    - Loading state yang lebih halus, toast notif, dan feedback error yang lebih jelas.
 s
