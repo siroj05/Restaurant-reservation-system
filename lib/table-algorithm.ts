@@ -9,7 +9,7 @@ export interface TableRecommendation {
 }
 
 function timeToMinutes(time : string):number{
-    const [hours, minutes] = time.split(".").map(Number)
+    const [hours, minutes] = time.split(":").map(Number)
     return hours * 60 + minutes
 }
 
