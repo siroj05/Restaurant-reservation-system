@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Restaurant Reservation System
 
-## Getting Started
+Project ini adalah aplikasi reservasi restoran sederhana menggunakan Next.js (App Router).  
+Flow utamanya:
+- user login
+- mencari rekomendasi meja
+- membuat reservasi
+- melihat reservasi sendiri
+- join waitlist kalau meja lagi penuh
 
-First, run the development server:
+## Cara Menjalankan Project
 
+### 1) Requirement
+- Node.js (disarankan v20+)
+- npm
+
+### 2) Install dependency
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 3) Menjalankan mode development
+```bash
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Lalu buka:
+`http://localhost:3000`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4) Build production
+```bash
+npm run build
+```
 
-## Learn More
+### 5) Jalankan hasil build
+```bash
+npm run start
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 6) Cek lint
+```bash
+npm run lint
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Arsitektur
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Strukturnya sekarang kurang lebih begini:
 
-## Deploy on Vercel
+- `app/`
+  - route UI (misalnya `/login`, `/reserve`, `/my-reservations`, `/waitlist`)
+  - API routes di `app/api/*`
+  - route group `(main)` buat halaman utama setelah login
+- `components/`
+  - komponen UI reusable
+- `store/`
+  - state auth pakai Zustand + persist (`auth-store.ts`)
+- `lib/`
+  - logic helper, misalnya:
+    - `table-algorithm.ts` (algoritma untuk rekomendasi meja) 
+    - `waitlist.ts` (proses antrian saat meja kosong)
+    - `server-store.ts` (store dari JSON seed)
+    - `api.ts` (wrapper fetch)
+- `app/api/data/*.json`
+  - data awal user, table, restaurant, reservations
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Kalau Punya Waktu Lebih, Mau Ditingkatin Ini
+
+1. **Ganti in-memory store ke database**
+   - Contoh: PostgreSQL + Prisma
+
+2. **Auth dibikin lebih baik**
+   - Password di hash, tambah session/JWT yang lebih aman, dan middleware proteksi route.
+
+3. **Tambah validasi**
+   - Pakai skema validator seperti zod dan RHF agar lebih ketat dan rapih
+
+
+6. **UX improvement**
+   - Loading state yang lebih halus, toast notif, dan feedback error yang lebih jelas.
+s
