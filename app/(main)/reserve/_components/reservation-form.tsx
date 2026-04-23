@@ -5,8 +5,6 @@ import { InputDate, InputTime } from "@/components/inputs"
 import { Label } from "@/components/label"
 import { LoaderIcon } from "lucide-react"
 
-// import type { TableRecommendation } from "@/lib/table-algorithm"
-
 interface ReservationFormProps {
     form: {
         date: string
@@ -85,7 +83,7 @@ export function ReservationForm({
                                         value={z}
                                         checked={isSelected}
                                         onChange={() => onUpdate("zone", z)}
-                                        className="sr-only" // hidden tapi tetap accessible
+                                        className="sr-only"
                                     />
                                     {label}
                                 </label>
@@ -96,13 +94,13 @@ export function ReservationForm({
 
                 {/* SUBMIT */}
                 <Button onClick={onSearch} disabled={isLoading}>
-                    {isLoading ? 
-                    <div className="flex">
-                        <LoaderIcon/>
-                        <p>Mencari...</p>
-                    </div>
-                     : 
-                    "Cari meja"
+                    {isLoading ?
+                        <div className="flex">
+                            <LoaderIcon />
+                            <p>Mencari...</p>
+                        </div>
+                        :
+                        "Cari meja"
                     }
                 </Button>
 

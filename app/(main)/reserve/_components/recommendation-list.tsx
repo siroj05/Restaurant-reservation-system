@@ -3,6 +3,7 @@
 import type { TableRecommendation } from "@/lib/table-algorithm"
 import { RecommendationCard } from "./recommendation-card"
 import { H3 } from "@/components/typography"
+import { Button } from "@/components/button"
 
 
 interface RecommendationListProps {
@@ -26,18 +27,17 @@ export function RecommendationList({
         return <p>Loading...</p>
     }
 
-    // Belum search sama sekali
     if (recommendations.length === 0 && !message) {
         return null
     }
-
-    // Sudah search tapi tidak ada hasil
+    
+    // ini buat kalau ga ada rekomendasi lain karna penuh dia diarahkan ke join waitlist
     if (recommendations.length === 0 && message) {
         return (
             <div>
                 <p>{message}</p>
                 {suggestWaitlist && (
-                    <button onClick={onJoinWaitlist}>Join Waitlist</button>
+                    <Button onClick={onJoinWaitlist}>Join Waitlist</Button>
                 )}
             </div>
         )

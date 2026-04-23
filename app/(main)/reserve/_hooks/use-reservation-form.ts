@@ -42,17 +42,16 @@ export function useReservationForm() {
     }
 
     async function searchTables() {
-
         if (!form.date) {
-            setError("Tanggal wajib diisi")
+            setError("Pilih tanggal dulu.")
             return
         }
         if (!form.time) {
-            setError("Waktu wajib diisi")
+            setError("Pilih waktu dulu.")
             return
         }
         if (form.guestCount < 1) {
-            setError("Jumlah tamu minimal 1")
+            setError("Jumlah tamu minimal 1.")
             return
         }
 
@@ -113,7 +112,7 @@ export function useReservationForm() {
         setError("")
 
         try {
-            await apiFetch("/api/waitlist", {
+            const data = await apiFetch<{ entry: { id: string } }>("/api/waitlist", {
                 method: "POST",
                 body: {
                     guestCount: form.guestCount,
@@ -123,7 +122,7 @@ export function useReservationForm() {
                 },
             })
 
-            router.push("/waitlist")
+            router.push(`/waitlist?id=${data.entry.id}`)
         } catch (err) {
             setError(err instanceof Error ? err.message : "Something went wrong")
         } finally {
