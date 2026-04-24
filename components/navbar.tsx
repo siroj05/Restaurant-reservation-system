@@ -1,6 +1,6 @@
 "use client"
-import { HandPlatter } from "lucide-react";
-import { Body, H3 } from "./typography";
+import { HandPlatter, Menu, X } from "lucide-react";
+import { H3 } from "./typography";
 import { useAuthStore } from "@/store/auth-store";
 import { useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
@@ -17,67 +17,74 @@ export default function Navbar() {
     const router = useRouter()
     const pathname = usePathname()
     const { user, logout } = useAuthStore((state) => state)
-    const [open, setOpen] = useState<boolean>(false)
+    const [menuOpen, setMenuOpen] = useState(false)
 
     const isAuth = useAuthGuard()
 
     if (!isAuth) return null
 
     const handleLogout = () => {
-        setOpen(false)
+        setMenuOpen(false)
         logout()
         router.push("/login")
     }
 
-    return (
-        <div className="w-full bg-surface px-4 flex justify-between">
+    const handleMenuToggle = () => {
+        setMenuOpen(!menuOpen)
+    }
 
-            {/* left side */}
-            <div className="flex gap-5">
-                <div className="flex gap-2 my-auto">
+    const handleCloseMenu = () => {
+        setMenuOpen(false)
+    }
+
+    return (
+        <div className="w-full bg-surface px-4 sticky top-0 z-50">
+
+            {/* navbar */}
+            <div className="flex justify-between items-center h-14">
+                <div className="flex gap-2 items-center">
                     <HandPlatter />
-                    <H3>
-                        Restaurant
-                    </H3>
+                    <H3>Restaurant</H3>
                 </div>
-                <div className="flex my-auto">
+                <button onClick={handleMenuToggle} className="p-2">
+                    {menuOpen ? <X size={24} /> : <Menu size={24} />}
+                </button>
+                
+            </div>
+            {/* dropdown menu */}
+            {menuOpen && (
+                <div className="absolute top-14 left-0 w-full bg-surface flex flex-col pb-4 gap-1 shadow-md">
+                    <div className="px-3 py-2 text-sm text-muted">
+                        Halo, {user?.name}
+                    </div>
+                    <hr />
                     {NAV_ITEMS.map((item) => {
                         const isActive = pathname === item.href
                         return (
                             <Link
                                 href={item.href}
                                 key={item.href}
+                                onClick={handleCloseMenu}
                                 className={
                                     isActive
-                                        ? "border-b p-3 text-ink"
-                                        : "p-3 text-muted hover:border-b hover:text-ink"
+                                        ? "px-3 py-2 text-ink font-semibold border-l-2 border-ink"
+                                        : "px-3 py-2 text-muted hover:text-ink"
                                 }
                             >
                                 {item.label}
                             </Link>
                         )
                     })}
-                </div>
-            </div>
-
-            {/* right side */}
-            <div className="flex gap-2">
-                <Body className="my-auto">
-                    {user?.name}
-                </Body>
-                <div className="my-auto relative">
-                    <button onClick={() => setOpen(!open)} className="bg-ink w-10 h-10 rounded-full flex items-center justify-center my-auto text-center text-surface">
-                        {user?.name.slice(0, 1).toUpperCase()}
+                    <hr />
+                    <button
+                        onClick={handleLogout}
+                        className="px-3 py-2 text-left text-red-500 hover:text-red-700"
+                    >
+                        Logout
                     </button>
-                    {open &&
-                        <div className="absolute bg-surface boder-ink border-1 p-2 right-0">
-                            <button onClick={handleLogout}>
-                                Logout
-                            </button>
-                        </div>
-                    }
+
                 </div>
-            </div>
+            )}
 
         </div>
     )
