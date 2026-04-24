@@ -17,15 +17,15 @@ export function RecommendationCard({
 }: RecommendationCardProps) {
     const zone = recommendation.tables[0].zone
     return (
-        <div className="border-hair border-1 bg-surface-2 hover:bg-surface py-2 px-5 flex">
+        <div className="border-hair border-1 bg-surface-2 hover:bg-surface py-3 px-3 sm:px-5">
             {/* urutan rank */}
-            <div className="flex justify-between w-full">
+            <div className="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-start w-full">
                 <div className="flex gap-2">
                     <div className="my-auto">
                         <H1>#{rank}</H1>
                     </div>
                     <div>
-                        <div className="flex gap-2">
+                        <div className="flex flex-wrap gap-2">
                             <H4>{recommendation.tables[0].id.toUpperCase()}</H4>
                             <div className="border px-2 rounded-full">
                                 <Caption>
@@ -42,8 +42,8 @@ export function RecommendationCard({
                     </div>
                 </div>
                 
-                <div className="flex">
-                    <Button type="button" onClick={() => onSelect(recommendation)}>
+                <div className="flex w-full sm:w-auto">
+                    <Button type="button" onClick={() => onSelect(recommendation)} className="w-full sm:w-auto">
                         Reservasi
                     </Button>
                 </div>
